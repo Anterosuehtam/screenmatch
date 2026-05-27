@@ -15,7 +15,7 @@ public class ConsultaGemini {
 
             GenerateContentResponse response =
                     client.models.generateContent(
-                            "gemini-1.5-flash",
+                            "gemini-3-flash-preview",
                             "Traduza para língua portuguesa o seguinte trecho da forma mais direta, não pergunte mais nada, apenas faça: " + texto,
                             null);
 
