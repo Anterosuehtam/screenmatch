@@ -13,12 +13,16 @@ public class ConsultaGemini {
 
             Client client = Client.builder().apiKey(apiKey).build();
 
-            GenerateContentResponse response =
-                    client.models.generateContent(
-                            "gemini-3-flash-preview",
-                            "Traduza para língua portuguesa o seguinte trecho da forma mais direta, não pergunte mais nada, apenas faça: " + texto,
-                            null);
-
-            return response.text();
+            try {
+                GenerateContentResponse response = client.models.generateContent(
+                        "gemini-3-flash-preview",
+                        "Traduza para língua portuguesa o seguinte trecho da forma mais direta, não pergunte mais nada, apenas faça: " + texto,
+                        null
+                );
+                return response.text();
+            } catch (Exception e) {
+                System.out.println("Aviso: A API do Gemini está temporariamente indisponível. Mantendo o texto original.");
+                return texto;
+            }
         }
 }
