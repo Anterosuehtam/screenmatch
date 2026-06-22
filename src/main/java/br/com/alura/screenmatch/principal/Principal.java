@@ -185,10 +185,10 @@ public class Principal {
         var totalTemporadas = leitura.nextInt();
         System.out.println("Avaliações a partir de que valor? ");
         var avaliacao = leitura.nextDouble();
-        List<Serie> seriesPorQtdeTemporadas = serieRepository.findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual(totalTemporadas, avaliacao);
+        List<Serie> seriesPorQtdeTemporadas = serieRepository.seriesPorTemporadaEAvaliacacao(totalTemporadas, avaliacao);
         System.out.println("Séries que possuem até " + totalTemporadas + " temporadas: ");
         seriesPorQtdeTemporadas.forEach(s -> {
-            System.out.printf("%s avaliação: %.2f\n", s.getTitulo(), s.getAvaliacao());
+            System.out.printf("%s - avaliação: %.2f\n", s.getTitulo(), s.getAvaliacao());
         });
     }
 }
