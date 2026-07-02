@@ -39,11 +39,11 @@ public class Principal {
         var opcao = -1;
         while (opcao != 0) {
             var menu = """
-                    1 - Buscar séries
-                    2 - Buscar episódios
-                    3 - Listar séries buscadas
+                    1 - Gravar séries
+                    2 - Gravar episódios
+                    3 - Listar séries gravadas
                     4 - Buscar série por título
-                    5 - Buscar Séries por Ator
+                    5 - Buscar séries por Ator
                     6 - Top 5 Séries
                     7 - Buscar séries por categoria
                     8 - Buscar série pela quantidade de temporadas
@@ -109,7 +109,7 @@ public class Principal {
     }
 
     private DadosSerie getDadosSerie() {
-        System.out.println("Digite o nome da série para busca");
+        System.out.println("Digite o nome da série: ");
         var nomeSerie = leitura.nextLine();
         var json = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") + API_KEY);
         DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
